@@ -43,6 +43,18 @@ Install individual packages
 ### Requirements file
 
 Command to install all packages: 
+
+- mac iOS
+```
+pip3 install -r requirements.txt
+```
+    - **Error** with installing pyaudio
+    ```
+    brew install portaudio
+    pip3 install pyaudio
+    ```
+
+- Windows
 ```
 pip install -r requirements.txt
 ```
