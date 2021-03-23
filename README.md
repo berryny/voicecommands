@@ -50,6 +50,12 @@ Install individual packages
 - [wikipedia ](https://pypi.org/project/wikipedia/)
     - install `pip install wikipedia`
 
+- [gTTs](https://pypi.org/project/gTTS/) Google Text-to-Speech, a Python library and CLI tool to interface with Google Translates text-to-speech API.
+    - install `pip install gTTS`
+
+- [playsound](https://pypi.org/project/playsound/)
+    - install `pip install playsound`
+
 ### Requirements file
 
 Command to install all packages: 
