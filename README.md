@@ -43,3 +43,22 @@ Install individual packages
 ### requirements file
 
 Command to run and install all packages: `pip install -r requirements.txt`
+
+## GitHub
+
+- …or create a new repository on the command line
+```
+echo "# voicecommands" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/berryny/voicecommands.git
+git push -u origin main
+```
+- …or push an existing repository from the command line
+```
+git remote add origin https://github.com/berryny/voicecommands.git
+git branch -M main
+git push -u origin main
+```
