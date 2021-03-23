@@ -8,6 +8,16 @@ mkdir voicecommands
 cd voicecommands
 ```
 
+### mac iOS
+
+```
+xcode-select --install
+brew install python3
+pip3 install virtualenv
+```
+
+### Windows
+
 Add virtual environment in VSCode (powershell terminal)
 ```
 virtualenv venv 
