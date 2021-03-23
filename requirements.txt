@@ -4,3 +4,4 @@ PyAudio
 pywhatkit
 wikipedia
 gTTS
+playsound
