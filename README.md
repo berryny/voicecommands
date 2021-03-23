@@ -40,9 +40,18 @@ Install individual packages
 - [wikipedia ](https://pypi.org/project/wikipedia/)
     - install `pip install wikipedia`
 
-### requirements file
+### Requirements file
 
-Command to run and install all packages: `pip install -r requirements.txt`
+Command to install all packages: 
+```
+pip install -r requirements.txt
+```
+
+## Execute Command
+
+```
+py app.py
+```
 
 ## GitHub
 
