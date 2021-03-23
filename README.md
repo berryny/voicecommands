@@ -4,8 +4,8 @@
 
 Create directory
 ```
-mkdir romanticAlexa
-cd romanticAlexa
+mkdir voicecommands
+cd voicecommands
 ```
 
 Add virtual environment in VSCode (powershell terminal)
