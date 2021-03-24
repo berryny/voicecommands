@@ -48,8 +48,8 @@ def run_claira():
     text = get_audio()
     if "hey clara" in text:
         speak("Hello, how can I assist you?")
-    elif "ai" in text:
-        speak("Artificial intelligence is intelligence demonstrated by machines, unlike the natural intelligence displayed by humans and animals, which involves consciousness and emotionality.")
+    elif "what is ai" in text:
+        speak("Artificial intelligence")
     elif "what is your name" in text:
         speak("My name is Claira")
     else:
