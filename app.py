@@ -46,9 +46,7 @@ def get_audio():
 
 def run_claira():
     text = get_audio()
-    if "hey clara" in text:
-        speak("Hello, how can I assist you?")
-    elif "what is ai" in text:
+    if "what is ai" in text:
         speak("Artificial intelligence")
     elif "what is your name" in text:
         speak("My name is Claira")
@@ -60,10 +58,15 @@ def run_claira():
 
 if __name__ == "__main__":
     while True:
-        run_claira()
+        getAudioFunc = get_audio()
+        if 'hey clara' in getAudioFunc:
+            speak("Hello, how can I assist you?")
+            run_claira()
+            continue
 
         # command to exit out of program
-        if 'quit' in get_audio():
+        if 'quit' in getAudioFunc:
+            speak("good bye")
             break
             
 
