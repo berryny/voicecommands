@@ -4,6 +4,31 @@ import speech_recognition as sr
 from playsound import playsound
 from gtts import gTTS
 
+#----------------------------------------------------------------------------#
+# Use API key to access OpenAI
+#----------------------------------------------------------------------------#
+import openai
+# from gpt3 import gpt3
+
+from dotenv import load_dotenv, find_dotenv # imports module for dotenv
+load_dotenv(find_dotenv()) # loads .env from root directory
+
+# The root directory requires a .env file with API_KEY assigned/defined within
+ai_api_key = os.environ['OPENAI_API_KEY']
+
+openai.api_key = ai_api_key
+
+# response = openai.Completion.create(
+#   engine="davinci",
+#   prompt="The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.\n\nHuman: Hello, who are you?\nAI: I am an AI created by OpenAI. How can I help you today?\nHuman: I'd like to cancel my subscription.\nAI:",
+#   temperature=0.4,
+#   max_tokens=60,
+#   top_p=1.0,
+#   frequency_penalty=0.5,
+#   presence_penalty=0.0,
+#   stop=["\n", " Human:", " AI:"]
+# )
+
 # Give text to the computer and have it reply back to us
 def speak(text):
     print('speak text:', text)
@@ -52,21 +77,41 @@ def run_claira():
         speak("My name is Claira")
     else:
         speak('Please repeat command.')
+        
+start_chat_log = '''Human: Hello, who are you?
+AI: I am doing great. How can I help you today?
+'''
 
+def ask(question, chat_log=None):
+    if chat_log is None:
+        chat_log = start_chat_log
+    prompt = f'{chat_log}Human: {question}\nAI:'
+    response = openai.Completion.create(
+        prompt=prompt, 
+        engine="davinci", 
+        stop=['\nHuman'], 
+        temperature=0.9,
+        top_p=1, 
+        frequency_penalty=0, 
+        presence_penalty=0, 
+        best_of=1,
+        max_tokens=150
+    )
+    # temperature=0.9, top_p=1, frequency_penalty=0, presence_penalty=0.6, best_of=1, max_tokens=150
+    answer = response.choices[0].text.strip()
+    print('AI answer',answer)
+    return answer
 
 # allow voice command in a loop
 
 if __name__ == "__main__":
     while True:
-        getAudioFunc = get_audio()
-        if 'hey clara' in getAudioFunc:
-            speak("Hello, how can I assist you?")
-            run_claira()
-            continue
-
         # command to exit out of program
-        if 'quit' in getAudioFunc:
+        getAudioFunc = get_audio()
+        if 'exit' in getAudioFunc:
             speak("good bye")
             break
-            
+        else:
+            speak(ask(getAudioFunc)
+)
 
